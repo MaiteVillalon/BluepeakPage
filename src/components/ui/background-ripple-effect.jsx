@@ -16,9 +16,9 @@ export const BackgroundRippleEffect = ({
       ref={ref}
       className={cn(
         "absolute inset-0 h-full w-full isolate",
-        "[--cell-border-color:rgba(0,0,0,0.10)]",
-        "[--cell-fill-color:rgba(0,0,0,0.02)]",
-        "[--cell-shadow-color:rgba(0,0,0,0.30)]"
+        "[--cell-border-color:rgba(200,200,200,0.35)]",
+        "[--cell-fill-color:rgba(255,255,255,0.06)]",
+        "[--cell-shadow-color:rgba(255,255,255,0.55)]"
       )}
     >
       <div className="relative h-auto w-auto overflow-hidden">
@@ -46,8 +46,8 @@ const DivGrid = ({
   rows = 7,
   cols = 30,
   cellSize = 56,
-  borderColor = "rgba(0,0,0,0.10)",
-  fillColor = "rgba(0,0,0,0.02)",
+  borderColor = "rgba(200,200,200,0.35)",
+  fillColor = "rgba(255,255,255,0.06)",
   clickedCell = null,
   onCellClick = () => {},
   interactive = true,

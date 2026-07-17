@@ -12,9 +12,9 @@
 
 /* ─── Animación del Ripple Effect ───────────────────────────────── */
 @keyframes cell-ripple {
-  0%   { opacity: 0.22; }
-  50%  { opacity: 0.92; }
-  100% { opacity: 0.22; }
+  0%   { opacity: 0.20; }
+  40%  { opacity: 1; }
+  100% { opacity: 0.20; }
 }
 
 /* Tailwind v4 genera .animate-cell-ripple con este @theme */

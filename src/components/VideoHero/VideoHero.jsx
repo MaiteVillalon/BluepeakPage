@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { BackgroundRippleEffect } from '@/components/ui/background-ripple-effect'
 import styles from './VideoHero.module.css'
 
-const CELL = 52
+const CELL = 64
 function gridDims() {
   if (typeof window === 'undefined') return { rows: 12, cols: 24 }
   return {

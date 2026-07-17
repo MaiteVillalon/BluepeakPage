@@ -1,0 +1,95 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem clamp(1.5rem, 6vw, 5rem);
+
+  /* Estado inicial: glass sutil */
+  background: rgba(14, 20, 32, 0.25);
+  backdrop-filter: blur(12px) saturate(1.4);
+  -webkit-backdrop-filter: blur(12px) saturate(1.4);
+  border-bottom: 1px solid rgba(214, 224, 238, 0.06);
+
+  transition:
+    background 0.35s var(--ease-out-expo),
+    border-color 0.35s var(--ease-out-expo),
+    padding 0.35s var(--ease-out-expo);
+}
+
+/* Al hacer scroll: glass más denso y compacto */
+.scrolled {
+  background: rgba(14, 20, 32, 0.72);
+  border-bottom-color: rgba(214, 224, 238, 0.1);
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  color: var(--color-blanco-tec);
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.logo:hover {
+  color: var(--color-accent-light);
+}
+
+.navList {
+  display: flex;
+  gap: 2.25rem;
+  list-style: none;
+}
+
+.navLink {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  color: var(--color-hielo);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+  transition: color 0.18s ease;
+}
+
+/* Línea de subrayado animada en hover */
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-accent-light);
+  transition: width 0.25s var(--ease-out-expo);
+}
+
+.navLink:hover,
+.navLink:focus-visible {
+  color: var(--color-blanco-tec);
+}
+
+.navLink:hover::after,
+.navLink:focus-visible::after {
+  width: 100%;
+}
+
+/* Mobile: ocultar nav y mostrar sólo logo (hamburger puede agregarse en v2) */
+@media (max-width: 600px) {
+  .navList {
+    gap: 1.25rem;
+  }
+  .navLink {
+    font-size: 0.82rem;
+  }
+}

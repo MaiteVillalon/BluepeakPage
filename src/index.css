@@ -1,0 +1,50 @@
+/* ─── Design tokens ─────────────────────────────────────────────── */
+:root {
+  --color-antracita:   #0E1420;
+  --color-grafito:     #2C3545;
+  --color-pizarra:     #5A6A82;
+  --color-hielo:       #D6E0EE;
+  --color-blanco-tec:  #EEF2F8;
+  --color-accent:      #1A8A80;
+  --color-accent-light:#23B5A9;
+
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'IBM Plex Sans', sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─── Reset base ────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-antracita);
+  color: var(--color-hielo);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Foco visible global — accesibilidad */
+:focus-visible {
+  outline: 2px solid var(--color-accent-light);
+  outline-offset: 3px;
+  border-radius: 2px;
+}

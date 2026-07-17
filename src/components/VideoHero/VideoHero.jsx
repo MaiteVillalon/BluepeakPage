@@ -4,13 +4,10 @@ import styles from './VideoHero.module.css'
 export default function VideoHero() {
   return (
     <section className={styles.hero} aria-label="Hero">
-      {/* z-index 0 — grid ripple cubre todo el hero vía ResizeObserver */}
+      {/* Grid ripple — position:absolute inset:0, sin z-index explícito */}
       <BackgroundRippleEffect cellSize={64} />
 
-      {/* z-index 1 — toque oscuro solo detrás del bloque de texto */}
-      <div className={styles.overlay} aria-hidden="true" />
-
-      {/* z-index 2 — contenido */}
+      {/* Contenido — z-index:10 asegura que quede por encima del grid */}
       <div className={styles.content}>
         <p className={styles.eyebrow}>Consultora de software</p>
         <h1 className={styles.headline}>

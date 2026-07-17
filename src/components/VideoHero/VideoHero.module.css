@@ -7,31 +7,14 @@
   background: var(--color-antracita);
 }
 
-/*
- * Overlay z-index 1 — está sobre el grid (z-index 0) pero bajo el contenido.
- * Gradiente radial pesado en esquina inferior-izquierda donde vive el texto.
- * Gradiente lineal suave en el resto para que las cards respiren.
- */
-.overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  /* Solo un toque oscuro detrás del bloque de texto (esquina inferior-izq) */
-  background: radial-gradient(
-    ellipse 55% 38% at 4% 100%,
-    rgba(14, 20, 32, 0.62) 0%,
-    transparent 70%
-  );
-}
 
-/* Contenido z-index 2 — encima de overlay */
+/* Contenido z-index 10 — encima del grid (sin overlay) */
 .content {
   position: absolute;
   bottom: clamp(2.5rem, 7vh, 5rem);
   left: clamp(1.5rem, 6vw, 5rem);
   max-width: min(640px, 90vw);
-  z-index: 2;
+  z-index: 10;
 }
 
 .eyebrow {

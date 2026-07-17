@@ -2,13 +2,14 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
-const BORDER = "rgba(200,200,200,0.35)";
-const FILL   = "rgba(255,255,255,0.90)";
+// Dark-mode palette: líneas y glow sutiles sobre fondo oscuro
+const BORDER = "rgba(255,255,255,0.08)";
+const FILL   = "rgba(255,255,255,0.02)";
+const SHADOW = "0px 0px 12px 2px rgba(255,255,255,0.25) inset";
 
 export const BackgroundRippleEffect = ({ cellSize = 64 }) => {
   const ref = useRef(null);
 
-  // Inicializa desde window para evitar flash en primer render
   const [numCols, setNumCols] = useState(() =>
     typeof window !== "undefined" ? Math.ceil(window.innerWidth  / cellSize) + 1 : 25
   );
@@ -18,7 +19,6 @@ export const BackgroundRippleEffect = ({ cellSize = 64 }) => {
   const [clicked, setClicked]     = useState(null);
   const [rippleKey, setRippleKey] = useState(0);
 
-  // Recalcula cuando el contenedor cambia de tamaño
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -37,11 +37,6 @@ export const BackgroundRippleEffect = ({ cellSize = 64 }) => {
   );
 
   return (
-    /*
-     * El contenedor ES el grid. `position:absolute; inset:0` garantiza
-     * cobertura total del hero sin depender de clases Tailwind intermedias.
-     * `overflow:hidden` recorta celdas parciales en los bordes.
-     */
     <div
       ref={ref}
       style={{
@@ -54,8 +49,8 @@ export const BackgroundRippleEffect = ({ cellSize = 64 }) => {
       }}
     >
       {cells.map((idx) => {
-        const row = Math.floor(idx / numCols);
-        const col = idx % numCols;
+        const row  = Math.floor(idx / numCols);
+        const col  = idx % numCols;
         const dist = clicked
           ? Math.hypot(clicked.row - row, clicked.col - col)
           : 0;
@@ -64,12 +59,15 @@ export const BackgroundRippleEffect = ({ cellSize = 64 }) => {
           <div
             key={`${rippleKey}-${idx}`}
             className={cn(
+              // `cell` referenciado en prefers-reduced-motion de index.css
               "cell border cursor-pointer",
               clicked && "animate-cell-ripple [animation-fill-mode:none]"
             )}
             style={{
               backgroundColor: FILL,
               borderColor: BORDER,
+              boxShadow: SHADOW,   // glow siempre presente; la animación lo hace pulsar
+              opacity: 0.4,        // opacidad base; el ripple sube a 0.8
               ...(clicked
                 ? {
                     "--delay":    `${Math.max(0, dist * 48)}ms`,

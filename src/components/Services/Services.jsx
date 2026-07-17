@@ -18,6 +18,14 @@ const SERVICES = [
     title: 'Modernización de sistemas',
     body: 'Migramos sistemas legacy sin tirar todo desde cero. Estrategia incremental, cobertura de tests antes de tocar producción, y cero ventanas de corte que pongan en riesgo el negocio.',
   },
+  {
+    title: 'Integración de terceros',
+    body: 'Conectamos tu stack con APIs de pago, logística, ERP, CRM o cualquier servicio externo. Abstraemos la complejidad para que los cambios de proveedor no rompan tu producto.',
+  },
+  {
+    title: 'Code review & auditoría',
+    body: 'Revisamos el código que vas a escalar o a heredar. Entregamos un informe técnico con deuda identificada, riesgos priorizados y un plan de acción concreto, sin ambigüedades.',
+  },
 ]
 
 export default function Services() {

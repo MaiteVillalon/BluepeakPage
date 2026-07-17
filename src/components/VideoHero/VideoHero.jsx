@@ -12,10 +12,10 @@ const GRID_COLORS = {
 }
 
 const HEADLINE_WORDS = [
-  'sostienen el negocio.',
-  'no se caen a las 3am.',
-  'escalan sin miedo.',
-  'el equipo entiende.',
+  'Saas.',
+  'Apps',
+  'Soluciones Web',
+,
 ]
 
 export default function VideoHero() {
@@ -39,7 +39,7 @@ export default function VideoHero() {
       <div className={styles.content}>
         <p className={styles.eyebrow}>Consultora de software</p>
         <h1 className={styles.headline}>
-          Sistemas que<br />
+          Encuentra<br />
           <Typewriter
             texts={HEADLINE_WORDS}
             typedColor="var(--color-accent-light)"

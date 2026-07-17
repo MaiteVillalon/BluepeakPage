@@ -1,11 +1,32 @@
 /* ─── Tailwind v4 ───────────────────────────────────────────────── */
 @import "tailwindcss";
 
-/* Utility personalizada para Terminal (scrollbar oculto) */
+/* ─── Utilities personalizadas ──────────────────────────────────── */
+
+/* Terminal: scrollbar oculto */
 @utility no-visible-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;
   &::-webkit-scrollbar { display: none; }
+}
+
+/* ─── Animación del Ripple Effect ───────────────────────────────── */
+@keyframes cell-ripple {
+  0%   { opacity: 0.22; }
+  50%  { opacity: 0.92; }
+  100% { opacity: 0.22; }
+}
+
+/* Tailwind v4 genera .animate-cell-ripple con este @theme */
+@theme {
+  --animate-cell-ripple: cell-ripple var(--duration, 500ms) var(--delay, 0ms)
+    ease-in-out 1 forwards;
+}
+
+/* prefers-reduced-motion: detiene el ripple y los hover transitions */
+@media (prefers-reduced-motion: reduce) {
+  .animate-cell-ripple  { animation: none !important; }
+  .cell                  { transition: none !important; }
 }
 
 /* ─── Design tokens ─────────────────────────────────────────────── */
@@ -31,9 +52,7 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

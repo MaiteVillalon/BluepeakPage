@@ -1,13 +1,14 @@
-import NodeGraph from '../NodeGraph/NodeGraph.jsx'
+import HeroCarousel from '../HeroCarousel/HeroCarousel.jsx'
+import { PORTFOLIO_CARDS } from '@/data/portfolio.js'
 import styles from './VideoHero.module.css'
 
 export default function VideoHero() {
   return (
     <section className={styles.hero} aria-label="Hero">
-      {/* Animación generativa de fondo */}
-      <NodeGraph />
+      {/* Crossfade borroso de las mismas imágenes del portfolio */}
+      <HeroCarousel images={PORTFOLIO_CARDS} />
 
-      {/* Overlay que integra la animación con el fondo oscuro */}
+      {/* Overlay que integra el carousel con el fondo y protege el texto */}
       <div className={styles.overlay} aria-hidden="true" />
 
       {/* Contenido anclado en esquina inferior izquierda */}

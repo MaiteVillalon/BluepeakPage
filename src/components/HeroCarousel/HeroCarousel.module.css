@@ -1,0 +1,23 @@
+.carousel {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  will-change: opacity;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Fuertemente atenuada: blur + brillo muy bajo + desaturación
+     El resultado es un ambiente oscuro, no una foto legible */
+  filter: blur(10px) brightness(0.28) saturate(0.55);
+  /* Scale para evitar bordes del blur */
+  transform: scale(1.06);
+  transform-origin: center;
+}

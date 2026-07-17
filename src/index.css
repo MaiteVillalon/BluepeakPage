@@ -1,3 +1,13 @@
+/* ─── Tailwind v4 ───────────────────────────────────────────────── */
+@import "tailwindcss";
+
+/* Utility personalizada para Terminal (scrollbar oculto) */
+@utility no-visible-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
 /* ─── Design tokens ─────────────────────────────────────────────── */
 :root {
   --color-antracita:   #0E1420;
@@ -42,7 +52,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Foco visible global — accesibilidad */
 :focus-visible {
   outline: 2px solid var(--color-accent-light);
   outline-offset: 3px;

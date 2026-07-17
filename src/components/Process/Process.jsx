@@ -1,78 +1,87 @@
-import { useEffect, useRef } from 'react'
+import { Terminal } from '@/components/ui/terminal'
 import styles from './Process.module.css'
 
-const STEPS = [
-  {
-    n: '01',
-    title: 'Diagnóstico técnico',
-    body: 'Antes de proponer una solución, entendemos el contexto real: qué tiene el sistema, qué deuda acumuló y cuáles son las restricciones del negocio. Sin diagnóstico no hay propuesta seria.',
-  },
-  {
-    n: '02',
-    title: 'Diseño de solución',
-    body: 'Definimos arquitectura, stack y plan de trabajo con criterios explícitos. Cada decisión técnica tiene una razón documentada — no "así lo hacemos siempre".',
-  },
-  {
-    n: '03',
-    title: 'Ejecución iterativa',
-    body: 'Ciclos cortos con entregables reales. Revisión de código, cobertura de tests y comunicación directa con el equipo técnico del cliente — sin intermediarios que distorsionen la información.',
-  },
-  {
-    n: '04',
-    title: 'Transferencia y cierre',
-    body: 'El conocimiento queda en tu equipo, no en nuestra cabeza. Documentación de decisiones, onboarding del equipo interno y seguimiento post-entrega.',
-  },
+const COMMANDS = [
+  'git clone git@bluepeak.io:cliente/plataforma.git',
+  'cd plataforma && npm ci --prefer-offline',
+  'npm run typecheck && npm run lint',
+  'npm run test -- --coverage --watchAll=false',
+  'docker compose -f docker-compose.staging.yml up --build -d',
+  'npx infra deploy --env=staging --confirm',
 ]
 
+const OUTPUTS = {
+  0: ["✓ Cloning 'plataforma' (287 commits)"],
+  1: ['✓ 203 packages installed', '✓ No vulnerabilities found'],
+  2: ['✓ Type check: 0 errors', '✓ Lint: 0 warnings'],
+  3: [
+    'PASS  tests/api/auth.test.ts',
+    'PASS  tests/api/billing.test.ts',
+    'PASS  tests/services/notifications.test.ts',
+    '✓ 61 tests passed | Coverage: 93.7%',
+  ],
+  4: [
+    'Building services...',
+    '✓ api        (12.3s)',
+    '✓ worker     (8.1s)',
+    '✓ Stack healthy on :8080',
+  ],
+  5: [
+    'Deploying to staging...',
+    '✓ Rolling update: 3/3 pods',
+    '✓ Health check passed',
+    '✓ Done — https://staging.bluepeak.io',
+  ],
+}
+
 export default function Process() {
-  const stepsRef = useRef([])
-
-  useEffect(() => {
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (prefersReduced) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(styles.visible)
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.12 }
-    )
-
-    stepsRef.current.forEach((el) => el && observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
-
   return (
     <section id="proceso" className={styles.section}>
       <div className={styles.container}>
-        <header className={styles.header}>
+        <div className={styles.left}>
           <h2 className={styles.title}>Cómo trabajamos</h2>
           <p className={styles.lead}>
-            No es un proceso genérico de agencia. Es la forma en que estructuramos el trabajo para que el riesgo sea visible desde el día uno.
+            No es un proceso genérico de agencia. Cada proyecto arranca con un diagnóstico técnico real, avanza con ciclos cortos y entregables verificables, y cierra con el conocimiento dentro de tu equipo — no en nuestra cabeza.
           </p>
-        </header>
-
-        <ol className={styles.steps} role="list">
-          {STEPS.map((step, i) => (
-            <li
-              key={step.n}
-              ref={(el) => (stepsRef.current[i] = el)}
-              className={styles.step}
-              style={{ '--delay': `${i * 100}ms` }}
-            >
-              <span className={styles.stepNumber} aria-hidden="true">{step.n}</span>
-              <div className={styles.stepContent}>
-                <h3 className={styles.stepTitle}>{step.title}</h3>
-                <p className={styles.stepBody}>{step.body}</p>
+          <ul className={styles.pillars}>
+            <li>
+              <span className={styles.pillarMark} />
+              <div>
+                <strong>Diagnóstico primero</strong>
+                <p>Antes de proponer, entendemos la deuda, el equipo y las restricciones reales del negocio.</p>
               </div>
             </li>
-          ))}
-        </ol>
+            <li>
+              <span className={styles.pillarMark} />
+              <div>
+                <strong>Tests antes de cambiar producción</strong>
+                <p>Cobertura mínima pactada antes de tocar cualquier código crítico.</p>
+              </div>
+            </li>
+            <li>
+              <span className={styles.pillarMark} />
+              <div>
+                <strong>Decisiones documentadas</strong>
+                <p>Cada decisión de arquitectura queda registrada con su razonamiento.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div className={styles.right}>
+          <p className={styles.terminalCaption}>
+            Pipeline real de un proyecto tipo
+          </p>
+          <Terminal
+            commands={COMMANDS}
+            outputs={OUTPUTS}
+            username="bluepeak"
+            typingSpeed={38}
+            delayBetweenCommands={650}
+            enableSound={false}
+            className={styles.terminal}
+          />
+        </div>
       </div>
     </section>
   )

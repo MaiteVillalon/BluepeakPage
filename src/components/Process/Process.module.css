@@ -1,7 +1,6 @@
 .section {
   background: var(--color-antracita);
   padding: clamp(4rem, 10vh, 7rem) 0;
-  /* Separador visual superior */
   border-top: 1px solid rgba(90, 106, 130, 0.2);
 }
 
@@ -9,11 +8,24 @@
   max-width: 1160px;
   margin: 0 auto;
   padding: 0 clamp(1.5rem, 6vw, 5rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: start;
 }
 
-.header {
-  max-width: 580px;
-  margin-bottom: clamp(2.5rem, 6vh, 4.5rem);
+@media (max-width: 860px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Columna izquierda ─────────────────────────────────── */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 0.5rem;
 }
 
 .title {
@@ -22,84 +34,76 @@
   font-size: clamp(1.75rem, 3vw, 2.4rem);
   letter-spacing: -0.02em;
   color: var(--color-hielo);
-  margin-bottom: 0.9rem;
 }
 
 .lead {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.72;
   color: var(--color-pizarra);
+  max-width: 480px;
 }
 
-.steps {
+.pillars {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
 }
 
-.step {
-  display: grid;
-  grid-template-columns: 4rem 1fr;
-  gap: 1.5rem;
-  align-items: start;
-  padding: 2rem 0;
-  border-top: 1px solid rgba(90, 106, 130, 0.18);
-  position: relative;
-
-  /* Reveal */
-  opacity: 0;
-  transform: translateX(-14px);
-  transition:
-    opacity 0.5s var(--ease-out-expo) var(--delay, 0ms),
-    transform 0.5s var(--ease-out-expo) var(--delay, 0ms);
+.pillars li {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
 }
 
-.step:last-child {
-  border-bottom: 1px solid rgba(90, 106, 130, 0.18);
+.pillarMark {
+  display: block;
+  width: 2px;
+  min-height: 3rem;
+  background: var(--color-accent);
+  border-radius: 1px;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
 }
 
-.step.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.stepNumber {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
-  color: var(--color-accent);
-  padding-top: 0.2rem;
-  user-select: none;
-}
-
-.stepContent {
-  padding-right: 2rem;
-}
-
-.stepTitle {
+.pillars strong {
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: 1.05rem;
+  font-size: 0.9rem;
   color: var(--color-hielo);
-  margin-bottom: 0.6rem;
+  display: block;
+  margin-bottom: 0.25rem;
 }
 
-.stepBody {
+.pillars p {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.93rem;
-  line-height: 1.72;
+  font-size: 0.87rem;
+  line-height: 1.6;
   color: var(--color-pizarra);
-  max-width: 560px;
 }
 
-@media (max-width: 480px) {
-  .step {
-    grid-template-columns: 3rem 1fr;
-    gap: 1rem;
-  }
+/* ─── Columna derecha (Terminal) ───────────────────────── */
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.terminalCaption {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-pizarra);
+  padding-left: 0.25rem;
+}
+
+.terminal {
+  /* sobreescribir max-w-xl del componente para que ocupe toda la columna */
+  max-width: 100% !important;
 }

@@ -29,7 +29,7 @@
   font-weight: 300;
   font-size: 1.05rem;
   line-height: 1.7;
-  color: var(--color-pizarra);
+  color: var(--color-hielo);
 }
 
 .grid {
@@ -81,5 +81,5 @@
   font-weight: 300;
   font-size: 0.93rem;
   line-height: 1.72;
-  color: var(--color-pizarra);
+  color: var(--color-hielo);
 }

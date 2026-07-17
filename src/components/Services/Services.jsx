@@ -5,22 +5,26 @@ const SERVICES = [
   {
     title: 'Desarrollo a medida',
     body: 'Construimos software que resuelve el problema real, no el que encaja en una plantilla SaaS. Desde APIs hasta productos completos, con stack elegido según los requerimientos, no por moda.',
-    tag: 'API / Node.js',
   },
   {
     title: 'Arquitectura de sistemas',
     body: 'Diseñamos la estructura antes de escribir código. Revisamos arquitecturas existentes, identificamos puntos de quiebre y proponemos cambios concretos con impacto medible.',
-    tag: 'Diagrama',
   },
   {
     title: 'Staff augmentation',
     body: 'Sumamos ingenieros que se integran a tu equipo sin overhead de proceso. Perfiles senior que pueden liderar, revisar código y tomar decisiones técnicas desde el primer sprint.',
-    tag: 'Onboarding',
   },
   {
     title: 'Modernización de sistemas',
     body: 'Migramos sistemas legacy sin tirar todo desde cero. Estrategia incremental, cobertura de tests antes de tocar producción, y cero ventanas de corte que pongan en riesgo el negocio.',
-    tag: 'Migración',
+  },
+  {
+    title: 'Integración de terceros',
+    body: 'Conectamos tu stack con APIs de pago, logística, ERP, CRM o cualquier servicio externo. Abstraemos la complejidad para que los cambios de proveedor no rompan tu producto.',
+  },
+  {
+    title: 'Code review & auditoría',
+    body: 'Revisamos el código que vas a escalar o a heredar. Entregamos un informe técnico con deuda identificada, riesgos priorizados y un plan de acción concreto, sin ambigüedades.',
   },
 ]
 
@@ -65,14 +69,8 @@ export default function Services() {
               className={styles.card}
               style={{ '--delay': `${i * 80}ms` }}
             >
-              <div className={styles.macHeader} aria-hidden="true">
-                <span className={styles.red} />
-                <span className={styles.yellow} />
-                <span className={styles.green} />
-              </div>
               <h3 className={styles.cardTitle}>{service.title}</h3>
               <p className={styles.cardBody}>{service.body}</p>
-              <span className={styles.cardTag}>{service.tag}</span>
             </li>
           ))}
         </ul>

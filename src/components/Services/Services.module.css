@@ -37,7 +37,7 @@
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1px;
   list-style: none;
-  border: 1px solid rgba(90, 106, 130, 0.25);
+  border: 2px solid rgba(214, 224, 238, 0.35);
   border-radius: 4px;
   overflow: hidden;
 }
@@ -45,8 +45,8 @@
 .card {
   padding: 2rem 1.75rem 2.25rem;
   background: var(--color-grafito);
-  border-right: 1px solid rgba(90, 106, 130, 0.2);
-  border-bottom: 1px solid rgba(90, 106, 130, 0.2);
+  border-right: 2px solid rgba(214, 224, 238, 0.25);
+  border-bottom: 2px solid rgba(214, 224, 238, 0.25);
 
   /* Reveal animation */
   opacity: 0;

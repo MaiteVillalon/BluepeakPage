@@ -4,28 +4,18 @@
   border-top: 1px solid rgba(90, 106, 130, 0.2);
 }
 
-.container {
+.inner {
   max-width: 1160px;
   margin: 0 auto;
   padding: 0 clamp(1.5rem, 6vw, 5rem);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(2.5rem, 5vw, 5rem);
-  align-items: start;
-}
-
-@media (max-width: 860px) {
-  .container {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ─── Columna izquierda ─────────────────────────────────── */
-.left {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  padding-top: 0.5rem;
+  gap: clamp(2.5rem, 5vh, 3.5rem);
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.header {
+  max-width: 600px;
 }
 
 .title {
@@ -34,6 +24,7 @@
   font-size: clamp(1.75rem, 3vw, 2.4rem);
   letter-spacing: -0.02em;
   color: var(--color-hielo);
+  margin-bottom: 0.9rem;
 }
 
 .lead {
@@ -42,31 +33,54 @@
   font-size: 1rem;
   line-height: 1.72;
   color: var(--color-pizarra);
-  max-width: 480px;
 }
 
-.pillars {
-  list-style: none;
+/* ── Terminal — centrado, ancho fijo tipo demo oficial ───── */
+.terminalWrap {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-  margin-top: 0.5rem;
+  align-items: center;        /* centra horizontalmente */
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.caption {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-pizarra);
+  align-self: flex-start;
+  /* Alinea con el borde izquierdo del terminal (que tiene max-w-xl = 576px centrado) */
+  margin-left: calc(50% - 288px);
+}
+
+@media (max-width: 640px) {
+  .caption { margin-left: 0; }
+}
+
+/* ── Principios — 3 columnas tranquilas ─────────────────── */
+.pillars {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem 2.5rem;
+  border-top: 1px solid rgba(90, 106, 130, 0.18);
+  padding-top: 2rem;
+}
+
+@media (max-width: 640px) {
+  .pillars {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
 }
 
 .pillars li {
   display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-}
-
-.pillarMark {
-  display: block;
-  width: 2px;
-  min-height: 3rem;
-  background: var(--color-accent);
-  border-radius: 1px;
-  flex-shrink: 0;
-  margin-top: 0.1rem;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 .pillars strong {
@@ -74,36 +88,15 @@
   font-weight: 500;
   font-size: 0.9rem;
   color: var(--color-hielo);
-  display: block;
-  margin-bottom: 0.25rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--color-accent);
 }
 
 .pillars p {
   font-family: var(--font-body);
   font-weight: 300;
   font-size: 0.87rem;
-  line-height: 1.6;
+  line-height: 1.62;
   color: var(--color-pizarra);
-}
-
-/* ─── Columna derecha (Terminal) ───────────────────────── */
-.right {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.terminalCaption {
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-pizarra);
-  padding-left: 0.25rem;
-}
-
-.terminal {
-  /* sobreescribir max-w-xl del componente para que ocupe toda la columna */
-  max-width: 100% !important;
+  padding-left: 0.75rem;
 }

@@ -1,17 +1,17 @@
-import HeroCarousel from '../HeroCarousel/HeroCarousel.jsx'
+import HeroFocusCards from '../HeroFocusCards/HeroFocusCards.jsx'
 import { PORTFOLIO_CARDS } from '@/data/portfolio.js'
 import styles from './VideoHero.module.css'
 
 export default function VideoHero() {
   return (
     <section className={styles.hero} aria-label="Hero">
-      {/* Crossfade borroso de las mismas imágenes del portfolio */}
-      <HeroCarousel images={PORTFOLIO_CARDS} />
+      {/* z-index 0 — grid de cards con Ken Burns + auto-focus + parallax */}
+      <HeroFocusCards cards={PORTFOLIO_CARDS} />
 
-      {/* Overlay que integra el carousel con el fondo y protege el texto */}
+      {/* z-index 1 — gradiente oscuro que da contraste al texto bottom-left */}
       <div className={styles.overlay} aria-hidden="true" />
 
-      {/* Contenido anclado en esquina inferior izquierda */}
+      {/* z-index 2 — contenido de texto */}
       <div className={styles.content}>
         <p className={styles.eyebrow}>Consultora de software</p>
         <h1 className={styles.headline}>

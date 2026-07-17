@@ -7,40 +7,32 @@
   background: var(--color-antracita);
 }
 
-.video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* Ligera desaturación para que el texto del hero siempre tenga prioridad */
-  filter: saturate(0.7) brightness(0.85);
-}
-
+/* Overlay que funde la animación con el fondo:
+   más denso en la esquina inferior-izquierda donde va el texto,
+   más abierto arriba-derecha para que la animación respire */
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    160deg,
-    rgba(14, 20, 32, 0.35) 0%,
-    rgba(14, 20, 32, 0.55) 60%,
-    rgba(14, 20, 32, 0.82) 100%
-  );
+  background:
+    radial-gradient(ellipse 65% 55% at 15% 90%, rgba(14, 20, 32, 0.92) 0%, transparent 100%),
+    linear-gradient(160deg, rgba(14, 20, 32, 0.2) 0%, rgba(14, 20, 32, 0.5) 100%);
+  pointer-events: none;
 }
 
+/* Contenido: esquina inferior izquierda */
 .content {
   position: absolute;
   bottom: clamp(2.5rem, 7vh, 5rem);
   left: clamp(1.5rem, 6vw, 5rem);
-  max-width: min(680px, 90vw);
+  max-width: min(640px, 90vw);
   z-index: 1;
 }
 
 .eyebrow {
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--color-accent-light);
   margin-bottom: 1rem;
@@ -48,10 +40,10 @@
 
 .headline {
   font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(2.6rem, 6.5vw, 5.2rem);
-  line-height: 1.06;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  font-size: clamp(2.8rem, 6.5vw, 5.4rem);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
   color: var(--color-blanco-tec);
   margin-bottom: 1.25rem;
 }
@@ -59,14 +51,13 @@
 .subheadline {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: clamp(1rem, 1.6vw, 1.15rem);
-  line-height: 1.65;
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  line-height: 1.68;
   color: var(--color-hielo);
-  opacity: 0.88;
+  opacity: 0.85;
   margin-bottom: 2rem;
 }
 
-/* Ocultar el <br> en móvil para que no quede raro */
 .br {
   display: none;
 }
@@ -81,7 +72,7 @@
   color: var(--color-blanco-tec);
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   letter-spacing: 0.02em;
   text-decoration: none;
   border-radius: 3px;

@@ -5,10 +5,10 @@
   --color-pizarra:     #5A6A82;
   --color-hielo:       #D6E0EE;
   --color-blanco-tec:  #EEF2F8;
-  --color-accent:      #1A8A80;
-  --color-accent-light:#23B5A9;
+  --color-accent:      #5B6EF5;
+  --color-accent-light:#8494F9;
 
-  --font-display: 'Syne', sans-serif;
+  --font-display: 'Barlow Semi Condensed', sans-serif;
   --font-body:    'IBM Plex Sans', sans-serif;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);

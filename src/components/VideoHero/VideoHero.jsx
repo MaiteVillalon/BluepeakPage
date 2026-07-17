@@ -12,7 +12,7 @@ const GRID_COLORS = {
 }
 
 const HEADLINE_WORDS = [
-  'Saas.',
+  'Saas',
   'Apps',
   'Soluciones Web',
 ,

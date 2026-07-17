@@ -10,24 +10,6 @@
   &::-webkit-scrollbar { display: none; }
 }
 
-/* ─── Animación del Ripple Effect ───────────────────────────────── */
-/* Tailwind v4 genera .animate-cell-ripple con este @theme */
-@theme {
-  --animate-cell-ripple: cell-ripple var(--duration, 200ms) ease-out none 1
-    var(--delay, 0ms);
-
-  @keyframes cell-ripple {
-    0%   { opacity: 0.4; }
-    50%  { opacity: 0.8; }
-    100% { opacity: 0.4; }
-  }
-}
-
-/* prefers-reduced-motion: reduce las transiciones pero mantiene el ripple visible */
-@media (prefers-reduced-motion: reduce) {
-  .cell { transition: none !important; }
-}
-
 /* ─── Design tokens ─────────────────────────────────────────────── */
 :root {
   --color-antracita:   #0E1420;

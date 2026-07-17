@@ -45,7 +45,7 @@ export const ThreeDMarquee = ({ images, className }) => {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       src={image}
                       alt={`Proyecto ${imageIndex + 1}`}
-                      className="aspect-[970/700] rounded-lg object-cover ring ring-white/10 hover:shadow-2xl"
+                      className="aspect-[970/700] rounded-lg object-cover ring ring-white/10 hover:shadow-2xl brightness-[0.55] hover:brightness-75 transition-[filter] duration-300"
                       width={970}
                       height={700}
                     />

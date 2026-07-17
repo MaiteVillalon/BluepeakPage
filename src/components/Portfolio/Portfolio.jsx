@@ -54,7 +54,7 @@ export default function Portfolio() {
 
       {/* Marquee corre full-width dentro del section, sin el max-width del container */}
       <div className={styles.marqueeWrap}>
-        <ThreeDMarquee images={IMAGES} />
+        <ThreeDMarquee images={IMAGES} className="flex-1 h-full" />
       </div>
     </section>
   )

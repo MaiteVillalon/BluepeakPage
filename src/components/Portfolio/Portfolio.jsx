@@ -22,6 +22,22 @@ const IMAGES = [
   "https://images.unsplash.com/photo-1551434678-e076c223a692?w=970&h=700&fit=crop&q=80",
   "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=970&h=700&fit=crop&q=80",
   "https://images.unsplash.com/photo-1602525962574-3246f39f8d58?w=970&h=700&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=970&h=700&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1484557052118-f32bd25b45b5?w=970&h=700&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=970&h=700&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=970&h=700&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=970&h=700&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1547658719-da2b51169166?w=970&h=700&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=970&h=700&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=970&h=700&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=970&h=700&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=970&h=700&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1616499370260-485b3e5ed653?w=970&h=700&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1565106430482-8f6e74349ca1?w=970&h=700&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=970&h=700&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=970&h=700&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=970&h=700&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1614624532983-4ce71639dc57?w=970&h=700&fit=crop&q=80",
 ]
 
 export default function Portfolio() {

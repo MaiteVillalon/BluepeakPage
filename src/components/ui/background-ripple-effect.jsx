@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 export const BackgroundRippleEffect = ({
@@ -11,24 +11,6 @@ export const BackgroundRippleEffect = ({
   const [rippleKey, setRippleKey]     = useState(0);
   const ref = useRef(null);
 
-  // Dispara ondas automáticas cada ~2.4 s desde posiciones aleatorias
-  useEffect(() => {
-    const fire = () => {
-      const row = Math.floor(Math.random() * rows);
-      const col = Math.floor(Math.random() * cols);
-      setClickedCell({ row, col });
-      setRippleKey(k => k + 1);
-    };
-    fire();
-    const id = setInterval(fire, 2400);
-    return () => clearInterval(id);
-  }, [rows, cols]);
-
-  const triggerRipple = (row, col) => {
-    setClickedCell({ row, col });
-    setRippleKey(k => k + 1);
-  };
-
   return (
     <div
       ref={ref}
@@ -38,9 +20,9 @@ export const BackgroundRippleEffect = ({
        */
       className={cn(
         "absolute inset-0 h-full w-full isolate",
-        "[--cell-border-color:rgba(214,224,238,0.22)]",
-        "[--cell-fill-color:rgba(214,224,238,0.04)]",
-        "[--cell-shadow-color:rgba(214,224,238,0.48)]"
+        "[--cell-border-color:rgba(214,224,238,0.55)]",
+        "[--cell-fill-color:rgba(214,224,238,0.10)]",
+        "[--cell-shadow-color:rgba(214,224,238,0.80)]"
       )}
     >
       <div className="relative h-auto w-auto overflow-hidden">
@@ -53,7 +35,10 @@ export const BackgroundRippleEffect = ({
           borderColor="var(--cell-border-color)"
           fillColor="var(--cell-fill-color)"
           clickedCell={clickedCell}
-          onCellClick={triggerRipple}
+          onCellClick={(row, col) => {
+            setClickedCell({ row, col });
+            setRippleKey(k => k + 1);
+          }}
           interactive
         />
       </div>
@@ -104,10 +89,10 @@ const DivGrid = ({
           <div
             key={idx}
             className={cn(
-              "cell relative border-[0.5px] opacity-[0.28] transition-opacity duration-150",
+              "cell relative border opacity-[0.50] transition-opacity duration-150",
               "will-change-transform",
-              "hover:opacity-[0.72]",
-              "shadow-[0px_0px_32px_2px_var(--cell-shadow-color)_inset]",
+              "hover:opacity-[0.90]",
+              "shadow-[0px_0px_40px_4px_var(--cell-shadow-color)_inset]",
               clickedCell && "animate-cell-ripple [animation-fill-mode:none]",
               !interactive && "pointer-events-none"
             )}

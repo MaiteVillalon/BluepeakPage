@@ -11,16 +11,16 @@
 }
 
 /* ─── Animación del Ripple Effect ───────────────────────────────── */
-@keyframes cell-ripple {
-  0%   { opacity: 0.20; }
-  40%  { opacity: 1; }
-  100% { opacity: 0.20; }
-}
-
 /* Tailwind v4 genera .animate-cell-ripple con este @theme */
 @theme {
-  --animate-cell-ripple: cell-ripple var(--duration, 500ms) var(--delay, 0ms)
-    ease-in-out 1 forwards;
+  --animate-cell-ripple: cell-ripple var(--duration, 200ms) ease-out none 1
+    var(--delay, 0ms);
+
+  @keyframes cell-ripple {
+    0%   { opacity: 0.4; }
+    50%  { opacity: 0.8; }
+    100% { opacity: 0.4; }
+  }
 }
 
 /* prefers-reduced-motion: detiene el ripple y los hover transitions */

@@ -3,9 +3,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 // Dark-mode palette: líneas y glow sutiles sobre fondo oscuro
-const BORDER = "rgba(255,255,255,0.08)";
-const FILL   = "rgba(255,255,255,0.02)";
-const SHADOW = "0px 0px 12px 2px rgba(255,255,255,0.25) inset";
+const BORDER = "rgba(255,255,255,0.15)";
+const FILL   = "rgba(255,255,255,0.03)";
+const SHADOW = "0px 0px 20px 4px rgba(255,255,255,0.6) inset";
 
 export const BackgroundRippleEffect = ({ cellSize = 64 }) => {
   const ref = useRef(null);

@@ -23,10 +23,9 @@
   }
 }
 
-/* prefers-reduced-motion: detiene el ripple y los hover transitions */
+/* prefers-reduced-motion: reduce las transiciones pero mantiene el ripple visible */
 @media (prefers-reduced-motion: reduce) {
-  .animate-cell-ripple  { animation: none !important; }
-  .cell                  { transition: none !important; }
+  .cell { transition: none !important; }
 }
 
 /* ─── Design tokens ─────────────────────────────────────────────── */

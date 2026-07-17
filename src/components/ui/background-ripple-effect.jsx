@@ -60,14 +60,14 @@ export const BackgroundRippleEffect = ({ cellSize = 64 }) => {
             key={`${rippleKey}-${idx}`}
             className={cn(
               // `cell` referenciado en prefers-reduced-motion de index.css
-              "cell border cursor-pointer",
+              // opacity-[0.4] via clase (no inline) para que el keyframe pueda sobreescribirla
+              "cell border cursor-pointer opacity-[0.4]",
               clicked && "animate-cell-ripple [animation-fill-mode:none]"
             )}
             style={{
               backgroundColor: FILL,
               borderColor: BORDER,
-              boxShadow: SHADOW,   // glow siempre presente; la animación lo hace pulsar
-              opacity: 0.4,        // opacidad base; el ripple sube a 0.8
+              boxShadow: SHADOW,
               ...(clicked
                 ? {
                     "--delay":    `${Math.max(0, dist * 48)}ms`,

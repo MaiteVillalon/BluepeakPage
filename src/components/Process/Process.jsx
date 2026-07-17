@@ -55,7 +55,7 @@ export default function Process() {
             username="bluepeak"
             typingSpeed={40}
             delayBetweenCommands={680}
-            enableSound={false}
+            enableSound={true}
           />
         </div>
 

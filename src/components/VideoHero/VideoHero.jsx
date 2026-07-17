@@ -1,28 +1,16 @@
-import { useMemo } from 'react'
 import { BackgroundRippleEffect } from '@/components/ui/background-ripple-effect'
 import styles from './VideoHero.module.css'
 
-const CELL = 64
-function gridDims() {
-  if (typeof window === 'undefined') return { rows: 12, cols: 24 }
-  return {
-    rows: Math.ceil(window.innerHeight / CELL) + 1,
-    cols: Math.ceil(window.innerWidth  / CELL) + 1,
-  }
-}
-
 export default function VideoHero() {
-  const { rows, cols } = useMemo(gridDims, [])
-
   return (
     <section className={styles.hero} aria-label="Hero">
-      {/* z-index 0 — grid ripple (isolate contiene sus z-index internos) */}
-      <BackgroundRippleEffect rows={rows} cols={cols} cellSize={CELL} />
+      {/* z-index 0 — grid ripple cubre todo el hero vía ResizeObserver */}
+      <BackgroundRippleEffect cellSize={64} />
 
-      {/* z-index 1 — gradiente oscuro que da contraste al texto bottom-left */}
+      {/* z-index 1 — toque oscuro solo detrás del bloque de texto */}
       <div className={styles.overlay} aria-hidden="true" />
 
-      {/* z-index 2 — contenido de texto */}
+      {/* z-index 2 — contenido */}
       <div className={styles.content}>
         <p className={styles.eyebrow}>Consultora de software</p>
         <h1 className={styles.headline}>

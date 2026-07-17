@@ -31,3 +31,10 @@
   line-height: 1.7;
   color: var(--color-pizarra);
 }
+
+.marqueeWrap {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 3rem);
+  padding-bottom: clamp(2rem, 4vh, 3rem);
+}
